@@ -1,1 +1,6 @@
 content: Find out about the people responsible for this event!
+location: '{"type":"Point","coordinates":[-94.5873011,39.0985987]}'
+staff:
+  - name: Jeremy Liberman
+    photo: /img/profile.jpeg
+    role: Web Designer
