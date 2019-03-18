@@ -20,35 +20,38 @@ collections:
         fields:
           - { label: Content, name: content, widget: markdown }
           - { label: Location, name: location, widget: markdown }
-          - label: "Staff"
-            name: "staff"
-            widget: "list"
+          - label: Staff
+            name: staff
+            widget: list
             fields:
               - { label: Name, name: name, widget: string }
               - { label: Role, name: role, widget: string }
               - { label: Photo, name: photo, widget: image }
 
-  - name: "guests"
-    label: "Guests"
+  - name: guests
+    label: Guests
     folder: "content/guests"
     create: true
+    identifier_field: name
     slug: "{{slug}}"
     editor:
       preview: true
     fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Credits", name: "credits", widget: "string" }
-      - { label: "Biography", name: "biography", widget: "markdown" }
+      - { label: Name, name: name, widget: string }
+      - { label: Credits, name: credits, widget: string }
+      - { label: Biography, name: biography, widget: markdown }
+      - { label: Photo, name: photo, widget: image }
 
   - name: events
     label: Events
     folder: "content/events"
     create: true
+    identifier_field: name
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     editor:
       preview: true
     fields:
-      - { label: "Name", name: "name", widget: "string" }
-      - { label: "Start At", name: "start_at", widget: "datetime" }
-      - { label: "End At", name: "end_at", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: Name, name: name, widget: string }
+      - { label: "Start At", name: start_at, widget: datetime }
+      - { label: "End At", name: end_at, widget: datetime }
+      - { label: Description, name: description, widget: markdown }
