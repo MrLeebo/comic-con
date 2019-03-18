@@ -11,15 +11,15 @@ collections:
     files:
       - name: index
         label: Index
-        file: content/index.yml
+        file: src/content/index.yml
         fields:
           - { label: Content, name: content, widget: markdown }
       - name: about
         label: About
-        file: content/about.yml
+        file: src/content/about.yml
         fields:
           - { label: Content, name: content, widget: markdown }
-          - { label: Location, name: location, widget: markdown }
+          - { label: Location, name: location, widget: map }
           - label: Staff
             name: staff
             widget: list
@@ -30,7 +30,7 @@ collections:
 
   - name: guests
     label: Guests
-    folder: "content/guests"
+    folder: "src/content/guests"
     create: true
     identifier_field: name
     slug: "{{slug}}"
@@ -44,7 +44,7 @@ collections:
 
   - name: events
     label: Events
-    folder: "content/events"
+    folder: "src/content/events"
     create: true
     identifier_field: name
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -52,6 +52,15 @@ collections:
       preview: true
     fields:
       - { label: Name, name: name, widget: string }
+      - { label: Location, name: location, widget: string }
       - { label: "Start At", name: start_at, widget: datetime }
       - { label: "End At", name: end_at, widget: datetime }
       - { label: Description, name: description, widget: markdown }
+      - label: Attending
+        name: attending
+        widget: relation
+        collection: guests
+        searchFields: [name]
+        valueField: name
+        displayFields: [credits]
+        multiple: true
