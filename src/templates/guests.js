@@ -12,7 +12,9 @@ export default function GuestPage({ pageContext: node }) {
         keywords={[`comic`, `convention`, `guests`, `autographs`]}
       />
 
-      <img className="fl ph4" src={photo} alt="" />
+      <div className="fl ph4" style={{ maxWidth: "50%" }}>
+        <img className="br4" src={photo} alt="" />
+      </div>
       <h1>{name}</h1>
       <h2 className="i">{credits}</h2>
       <div

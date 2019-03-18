@@ -39,20 +39,23 @@ export default function EventsPage() {
       <p>Check out the upcoming events for next comic-con:</p>
 
       <ul className="list">
-        {events.edges.map(({ node }) => (
+        {events.edges.map(({ node }, index) => (
           <li key={node.id}>
-            <h2>
-              <Link className="link" to={node.fields.slug}>
-                {node.frontmatter.name}
-              </Link>
-            </h2>
-            <h3>
-              {node.frontmatter.location}{" "}
-              <small>
-                {moment(node.frontmatter.start_at).format("MMM Do LT")} -{" "}
-                {moment(node.frontmatter.end_at).format("LT")}
-              </small>
-            </h3>
+            <div className={`br4 pa4 ${index % 2 === 0 ? "" : "bg-black-10"}`}>
+              <h2>
+                <Link className="link dark-blue dim" to={node.fields.slug}>
+                  {node.frontmatter.name}
+                </Link>
+              </h2>
+              <h3>
+                <span className="pr4">{node.frontmatter.location}</span>
+                <small>
+                  {moment(node.frontmatter.start_at).format("MMM Do LT")}
+                  {" to "}
+                  {moment(node.frontmatter.end_at).format("LT")}
+                </small>
+              </h3>
+            </div>
           </li>
         ))}
       </ul>
